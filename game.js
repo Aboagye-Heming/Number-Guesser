@@ -97,3 +97,33 @@ const handleValueChange = value => {
 humanGuessInput.addEventListener('input', function(e) {
   handleValueChange(e.target.value);
 });
+
+// conditions
+
+let humanScore = 0;
+let computerScore = 0;
+let currentRoundNumber = 1;
+
+// Write your code below:
+const generateTarget = () => {
+  return Math.floor(Math.random() * 10);
+};
+console.log(generateTarget());
+const compareGuesses = (humanGuess, computerGuess, secretTargetNum) => {
+  const humanDifference = Math.abs(secretTargetNum - humanGuess);
+  const computerDifference = Math.abs(secretTargetNum - computerGuess);
+
+  return humanDifference <= computerDifference;
+};
+
+const updateScore = (winner) => {
+  if (winner === "human") {
+    humanScore++;
+  } else if (winner === "computer") {
+    computerScore++;
+  }
+};
+
+const advanceRound = () => {
+  currentRoundNumber++;
+};
